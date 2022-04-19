@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.*;
 
+//BDD SYTYLE
 public class HealthCheckTest {
     @Test
     public void healthCheckTest() {
