@@ -21,6 +21,7 @@ public class PartialUpdateBookingTest extends BaseTest {
         int bookingid = createBooking.jsonPath().getInt("bookingid");
         System.out.println("created booking id is: " + bookingid);
 
+
         //3.) update the body for PATCH :
 
         JSONObject body = new JSONObject();
@@ -30,7 +31,7 @@ public class PartialUpdateBookingTest extends BaseTest {
         body.put("bookingdates", bookingdates);
 
         //4) Get a response for PATCH
-        Response patchedResponse = RestAssured.given().auth().preemptive().basic("admin","password123").contentType(ContentType.JSON).body(body.toString()).patch("https://restful-booker.herokuapp.com/booking/" + bookingid);
+        Response patchedResponse = RestAssured.given(spec).auth().preemptive().basic("admin", "password123").contentType(ContentType.JSON).body(body.toString()).patch("/booking/" + bookingid);
         patchedResponse.print();
         Assert.assertEquals(patchedResponse.getStatusCode(), 200);
 

@@ -38,7 +38,7 @@ public class UpdateBookingTest extends BaseTest {
         body.put("additionalneeds", "Shower Towel");
 
         //Get Response from PUT
-        Response updatedResponse = RestAssured.given().auth().preemptive().basic("admin","password123").contentType(ContentType.JSON).body(body.toString()).put("https://restful-booker.herokuapp.com/booking/" + bookingid);
+        Response updatedResponse = RestAssured.given(spec).auth().preemptive().basic("admin", "password123").contentType(ContentType.JSON).body(body.toString()).put("/booking/" + bookingid);
         updatedResponse.print();
         Assert.assertEquals(updatedResponse.getStatusCode(), 200);
     }
