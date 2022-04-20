@@ -1,4 +1,4 @@
-package com.herokuapp.restfulbooker;
+package com.herokuapp.restfulbooker.GET;
 
 import org.testng.annotations.Test;
 import io.restassured.RestAssured;
